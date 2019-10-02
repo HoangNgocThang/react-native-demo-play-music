@@ -7,6 +7,9 @@ import ProfileScreen from './src/screens/ProfileScreen';
 import ProductsScreen from './src/screens/ProductsScreen';
 import SplashScreen from './src/screens/SplashScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
+import DetailHomeScreen from './src/screens/DetailHomeScreen';
+import Tab2Screen from './src/screens/Tab2Screen';
+import Tab1Screen from './src/screens/Tab1Screen';
 
 const IntroStack = createStackNavigator(
   {
@@ -18,11 +21,23 @@ const IntroStack = createStackNavigator(
   },
 );
 
+const BottomTab = createMaterialBottomTabNavigator(
+  {
+    Tab1Screen: Tab1Screen,
+    Tab2Screen: Tab2Screen,
+  },
+  {
+    initialRouteName: 'Tab1Screen',
+  },
+);
+
 const AppStack = createStackNavigator(
   {
     HomeScreen: HomeScreen,
     ProfileScreen: ProfileScreen,
     ProductsScreen: ProductsScreen,
+    DetailHomeScreen: DetailHomeScreen,
+    BottomTab: BottomTab,
   },
   {
     initialRouteName: 'HomeScreen',

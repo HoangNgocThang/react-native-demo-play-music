@@ -11,7 +11,14 @@ const HomeScreen = props => {
     <View style={styles.container}>
       <Text>HomeScreen</Text>
       <TouchableOpacity onPress={_onClick}>
-        <Text>click</Text>
+        <Text>go to Profile</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          props.navigation.navigate('BottomTab');
+        }}>
+        <Text>go to Detail home</Text>
       </TouchableOpacity>
     </View>
   );
