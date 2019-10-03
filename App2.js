@@ -2,14 +2,17 @@ import React from 'react';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
+import {createDrawerNavigator} from 'react-navigation-drawer';
 import HomeScreen from './src/screens/HomeScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import ProductsScreen from './src/screens/ProductsScreen';
 import SplashScreen from './src/screens/SplashScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
-import DetailHomeScreen from './src/screens/DetailHomeScreen';
 import Tab2Screen from './src/screens/Tab2Screen';
 import Tab1Screen from './src/screens/Tab1Screen';
+import Tab3Screen from './src/screens/Tab3Screen';
+import Tab4Screen from './src/screens/Tab4Screen';
+import LoginScreen from './src/screens/LoginScreen';
 
 const IntroStack = createStackNavigator(
   {
@@ -33,15 +36,34 @@ const BottomTab = createMaterialBottomTabNavigator(
 
 const AppStack = createStackNavigator(
   {
-    HomeScreen: HomeScreen,
     ProfileScreen: ProfileScreen,
     ProductsScreen: ProductsScreen,
-    DetailHomeScreen: DetailHomeScreen,
-    BottomTab: BottomTab,
   },
   {
-    initialRouteName: 'HomeScreen',
+    initialRouteName: 'ProfileScreen',
     headerMode: 'none',
+  },
+);
+
+const AuthStack = createStackNavigator(
+  {
+    LoginScreen: LoginScreen,
+  },
+  {
+    initialRouteName: 'LoginScreen',
+    headerMode: 'none',
+  },
+);
+
+const DrawerNavigator = createDrawerNavigator(
+  {
+    BottomTab: BottomTab,
+    HomeScreen: HomeScreen,
+    Tab3Screen: Tab3Screen,
+    Tab4Screen: Tab4Screen,
+  },
+  {
+    initialRouteName: 'BottomTab',
   },
 );
 
@@ -49,11 +71,14 @@ const AppContainer = createAppContainer(
   createSwitchNavigator(
     {
       IntroStack: IntroStack,
+      AuthStack: AuthStack,
       WelcomeScreen: WelcomeScreen,
+      DrawerStack: DrawerNavigator,
       AppStack: AppStack,
+      BottomTab: BottomTab,
     },
     {
-      initialRouteName: 'IntroStack',
+      initialRouteName: 'DrawerStack',
     },
   ),
 );

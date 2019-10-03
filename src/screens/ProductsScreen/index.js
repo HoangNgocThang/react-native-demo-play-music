@@ -4,14 +4,14 @@ import styles from './ProductsScreen.style';
 
 const ProductsScreen = props => {
   const _onClick = () => {
-    props.navigation.popToTop();
+    props.navigation.goBack();
   };
 
   return (
     <View style={styles.container}>
       <Text>ProductsScreens</Text>
       <TouchableOpacity onPress={_onClick}>
-        <Text>click</Text>
+        <Text>goBack</Text>
       </TouchableOpacity>
     </View>
   );

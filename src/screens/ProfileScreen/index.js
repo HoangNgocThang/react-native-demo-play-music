@@ -4,11 +4,7 @@ import styles from './ProfileScreen.style';
 
 const ProfileScreen = props => {
   const onClick = () => {
-    props.navigation.goBack();
-  };
-
-  const onClick2 = () => {
-    props.navigation.navigate('ProductsScreen');
+    props.navigation.navigate('DrawerStack');
   };
 
   return (
@@ -16,10 +12,6 @@ const ProfileScreen = props => {
       <Text>ProfileScreen</Text>
       <TouchableOpacity onPress={onClick}>
         <Text>Click</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={onClick2}>
-        <Text>Click2</Text>
       </TouchableOpacity>
     </View>
   );
